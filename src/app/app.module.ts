@@ -2,9 +2,10 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {ApiService} from './api.service';
 import {BoardComponent} from './board/board.component';
 import {TileComponent} from './tile/tile.component';
+import {UurbestuurService} from './api/uurbestuur.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,9 +14,9 @@ import {TileComponent} from './tile/tile.component';
     TileComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, HttpClientModule
   ],
-  providers: [ApiService],
+  providers: [UurbestuurService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
