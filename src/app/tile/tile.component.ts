@@ -1,21 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import {UurbestuurService} from '../api/uurbestuur.service';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-tile',
   templateUrl: './tile.component.html',
-  styleUrls: ['./tile.component.scss']
+  styleUrls: ['./tile.component.scss'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class TileComponent implements OnInit {
-  hoursWorked = 0;
 
-  constructor(private uurbestuurService: UurbestuurService) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.uurbestuurService.fetchData().subscribe((data: { work_days_all_count: number, work_hrs_this_month: number }) => {
-      this.hoursWorked = data.work_hrs_this_month;
-    });
   }
+
 
 }
